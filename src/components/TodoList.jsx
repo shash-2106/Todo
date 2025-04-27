@@ -59,6 +59,9 @@ const TodoList = () => {
         return(tasks.filter(task => task.completed))
         
     }
+    function remainingTasks(){
+        return(tasks.filter(task => !task.completed))
+    }
 
 
 
@@ -110,7 +113,7 @@ const TodoList = () => {
                         </p>
                     </div>
                     <div>
-                        <button className="bg-cyan-600 font-winkyRough text-white mt-3 hover:bg-cyan-100 hover:text-blue-950" >Completed</button>
+                        <h3 className="bg-cyan-600 font-winkyRough text-white mt-3">Completed</h3>
                         <p>{
                             completedTasks().length > 0 ? (
                                 completedTasks().map(task => (
@@ -118,6 +121,18 @@ const TodoList = () => {
                                 ))
                             ) : (
                                 <p className="text-center font-winkyRough text-gray-600 mb-2">No completed tasks yet!</p>
+                            )
+                            }</p>
+                    </div>
+                    <div>
+                        <h3 className="bg-cyan-600 font-winkyRough text-white mt-3">Remaining</h3>
+                        <p>{
+                            remainingTasks().length > 0 ? (
+                                remainingTasks().map(task => (
+                                    task.text + ','
+                                ))
+                            ) : (
+                                <p className="text-center font-winkyRough text-gray-600 mb-2">No remaining tasks yet!</p>
                             )
                             }</p>
                     </div>
